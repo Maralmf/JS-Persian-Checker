@@ -1,6 +1,6 @@
 function validateNoneEnglish(rahsam) {
     var fieldValue = Xrm.Page.getAttribute(rahsam).getValue();
-    if (/^[A-Za-z]/.test(fieldValue)) {
+    if (!/^[\u0600-\u06FF\s]+$/.test(fieldValue)) {
         Xrm.Page.getAttribute(rahsam).setValue();
     }
 }
